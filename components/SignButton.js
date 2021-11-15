@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import signInImage from '../public/log-in.png';
+import signInImage from '../public/login-icon.svg';
 
 const Sbutton = styled.button`
   width: 10%; 
@@ -11,6 +11,14 @@ const Sbutton = styled.button`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+  background-color: inherit;
+  color: white;
+  transition: color 1s;
+  &:hover {
+    color: #10B5B2;
+    transition: color 1s;
+  }
 `;
 
 const SignButton = (props) => {
