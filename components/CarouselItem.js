@@ -4,7 +4,8 @@ import Image from 'next/image';
 import favicon from '../public/favicon.png'
 
 const Ssection = styled.section`
-  width: 20%;
+  margin: 0 90px;
+  width: 100%;
   height: 350px;
   position: relative;
   margin-right: 5%;
@@ -39,13 +40,13 @@ const Sli = styled.li`
 const CarouselItem = () => {
   return (
     <Ssection>
-      <Sdiv>
-        <Image
+      <Image
           src={favicon}
           alt="Search image will start to search movies"
-          width={50}
-          height={50}/>
-        <h2>Title</h2>
+          width={250}
+          height={350}/>
+      <Sdiv>    
+        <h2>Title</h2>    
         <Sflexrow>
           <Sli>Cost</Sli>
           <Sli>Category</Sli>

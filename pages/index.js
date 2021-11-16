@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Header from '../conteiner/Header';
 import Layout from '../components/Layout';
-import Carousel from '../conteiner/Carousel';
+import HomepageCarousel from '../conteiner/HomepageCarousel';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <Layout>
         <Header/>
-        <Carousel/>
+        <HomepageCarousel/>
       </Layout>
     </>
   )
