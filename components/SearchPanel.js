@@ -15,11 +15,12 @@ const Sform = styled.form`
 `;
 
 const Sinput = styled.input`
-  width: 89%;
+  padding-left: 5%;
+  width: 84%;
   background: inherit;
   color: white;
   border: none;
-  outline:none;
+  outline: none;
   color: #10B5B2;
 `;
 
