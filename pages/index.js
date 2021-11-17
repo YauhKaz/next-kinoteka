@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../conteiner/Header';
 import Layout from '../components/Layout';
 import HomepageCarousel from '../conteiner/HomepageCarousel';
+import HomepageFilter from '../conteiner/HomepageFilter';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Layout>
         <Header/>
         <HomepageCarousel/>
+        <HomepageFilter/>
       </Layout>
     </>
   )
