@@ -4,7 +4,7 @@ import Film from './Film';
 
 const Ssection = styled.section`
   width: 80%;
-  margin-top: 100px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
