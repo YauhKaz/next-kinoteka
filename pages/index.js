@@ -3,6 +3,7 @@ import Header from '../conteiner/Header';
 import Layout from '../components/Layout';
 import HomepageCarousel from '../conteiner/HomepageCarousel';
 import HomepageFilter from '../conteiner/HomepageFilter';
+import HomepageSubscription from '../conteiner/HomepageSubscription';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Header/>
         <HomepageCarousel/>
         <HomepageFilter/>
+        <HomepageSubscription/>
       </Layout>
     </>
   )
