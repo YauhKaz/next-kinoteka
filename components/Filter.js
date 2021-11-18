@@ -10,6 +10,7 @@ const Sdiv = styled.div`
 `;
 
 const Sinputdiv = styled(Sdiv)`
+  width: 260px;
   position: relative;
   background: #171C26;
   height: 40px;
@@ -83,7 +84,7 @@ const Filter = () => {
     <Ssection>
       <Sdiv>
         <Sselect name='genre'>
-          <option defaultChecked>All</option>
+          <option value="all">All</option>
           <option value="value1">1</option>
           <option value="value2">2</option>
           <option value="value3">3</option>
@@ -91,7 +92,7 @@ const Filter = () => {
           <option value="value5">5</option>
         </Sselect>
         <Sselect name='date'>
-          <option defaultChecked>All</option>
+          <option value="all">All</option>
           <option value="value1">1</option>
           <option value="value2">2</option>
           <option value="value3">3</option>
@@ -100,7 +101,7 @@ const Filter = () => {
         </Sselect>
       </Sdiv>
       <Sinputdiv>
-        <Sinput type="radio" id="featured" checked='checked' />
+        <Sinput type="radio" id="featured"/>
         <Slabel htmlFor="featured">Featured</Slabel>
         <Sinput type="radio" id="popular" />
         <Slabel htmlFor="popular">Popular</Slabel>

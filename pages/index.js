@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import HomepageCarousel from '../conteiner/HomepageCarousel';
 import HomepageFilter from '../conteiner/HomepageFilter';
 import HomepageSubscription from '../conteiner/HomepageSubscription';
+import Footer from '../conteiner/footer';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <HomepageCarousel/>
         <HomepageFilter/>
         <HomepageSubscription/>
+        <Footer/>
       </Layout>
     </>
   )
