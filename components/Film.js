@@ -4,12 +4,15 @@ import Image from 'next/image';
 import favicon from '../public/favicon.png'
 
 const Ssection = styled.section`
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
   border-radius: 16px;
   transform: scale(1);
   transition: transform 1s;
   &:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 1s;
   }
 `;
