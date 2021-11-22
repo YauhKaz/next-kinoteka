@@ -6,11 +6,6 @@ import Link from 'next/link';
 const Sli = styled.li`
   list-style-type: none;
   cursor: pointer;
-  transition: filter 1s;
-  &:hover {
-    filter: grayscale(100%);
-    transition: filter 1s;
-  }
 `; 
 
 const MediaItem = (props) => {

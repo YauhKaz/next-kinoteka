@@ -25,11 +25,15 @@ const Sul = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transition: filter 1s;
-  &:hover {
-    filter: grayscale(70%);
-    transition: filter 1s;
-  }
+  transition: opacity 1s;
+  & li {
+    opacity: 0.5;
+    transition: opacity 1s;
+    &:hover {
+      opacity: 1 !impotant;
+      transition: opacity 1s;
+    }
+  };  
 `;
 
 const FooterMedia = () => {
