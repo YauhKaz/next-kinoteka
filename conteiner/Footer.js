@@ -9,11 +9,14 @@ const Ssection = styled.section`
   margin-top: 50px;
   padding-bottom: 50px;
   width: 100%;
-  heigth: 300px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
 `;
 
 const Footer = () => {

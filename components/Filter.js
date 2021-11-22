@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Sdiv = styled.div`
   margin: 30px 20px; 
-  width: 28%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -61,21 +60,11 @@ const Ssection = styled.section`
   align-items: center;
   border-radius: 15px;
   background: #232A39;
+  @media (max-width: 700px) {
+    height: 180px;
+    flex-direction: column-reverse;
+  }
 `;
-
-const Ssliding = styled.div`
-  position: absolute;
-  transition: width 0.2s ease 0s, height 0.2s ease 0s, top 0.2s ease 0s, left 0.2s ease 0s;
-  opacity: 0;
-  left: 5px;
-  top: 5px;
-  height: 30px;
-  width: 80px;
-  border-radius: 15px;
-  background-color: #232A39;
-`;
-
-
 
 const Filter = () => {
   return (
@@ -100,7 +89,7 @@ const Filter = () => {
       </Sdiv>
       <Sinputdiv>
         <Slabel htmlFor="featured">
-          <Sinput type="radio" id="featured" checked/>
+          <Sinput type="radio" id="featured"/>
           <span>Featured</span>
         </Slabel>
         <Slabel htmlFor="popular">
@@ -111,7 +100,6 @@ const Filter = () => {
           <Sinput type="radio" id="newest"/>
           <span>Newest</span>
         </Slabel>
-        {/* <Ssliding></Ssliding> */}
       </Sinputdiv>
     </Ssection>
   )

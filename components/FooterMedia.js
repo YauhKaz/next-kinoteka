@@ -14,6 +14,9 @@ const Ssection = styled.section`
   height: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 700px) {
+    width: 80%;
+  }
 `;
 
 const Sul = styled.ul`

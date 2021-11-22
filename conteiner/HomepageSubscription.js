@@ -25,10 +25,14 @@ const HomepageSubscription = () => {
       items: 1
     }
   };
+
+  const Sh2 = styled.h2`
+    margin-left: 100px;
+  `;
  
   return (
     <section>
-      <h2>Subscriptions</h2>
+      <Sh2>Subscriptions</Sh2>
       <Carousel responsive={responsive} infinite={true}>
         <Film/>
         <Film/>
