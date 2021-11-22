@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Layout>
-        <HomepageBurger/>
+        {/* <HomepageBurger/> */}
         <Header/>
         <HomepageCarousel/>
         <HomepageFilter/>

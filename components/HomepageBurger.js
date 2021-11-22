@@ -3,12 +3,13 @@ import Link from 'next/link';
 
 const HomepageBurger = () => {
 
+
   return (
-    <Menu isOpen = {false}>
-      <Link id="home" className="menu-item" href="/">Home</Link>
-      <Link id="about" className="menu-item" href="/">Catalog</Link>
-      <Link id="contact" className="menu-item" href="/">Pricing plan</Link>
-      <Link className="menu-item--small" href="/">LIVE</Link>
+    <Menu onClose={ handleOnClose } isOpen = {false}>
+      <Link id="home" href="/">Home</Link>
+      <Link id="catalog" href="/">Catalog</Link>
+      <Link id="pricing" href="/">Pricing plan</Link>
+      <Link id="live" href="/">LIVE</Link>
     </Menu>
   )
 }

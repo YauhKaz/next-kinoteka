@@ -4,7 +4,7 @@ import Image from 'next/image';
 import favicon from '../public/favicon.png'
 
 const Ssection = styled.section`
-  margin: 0 90px;
+  margin: 0 65px;
   width: 100%;
   height: 350px;
   position: relative;
