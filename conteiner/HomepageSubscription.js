@@ -2,9 +2,12 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Film from '../components/Film';
+import SubsItem from '../components/SubsItem';
+import { getAllSubs } from '../Subdata';
 
 const HomepageSubscription = () => {
+  const subs = getAllSubs();
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -34,15 +37,7 @@ const HomepageSubscription = () => {
     <section>
       <Sh2>Subscriptions</Sh2>
       <Carousel responsive={responsive} infinite={true}>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
-        <Film/>
+        { subs.map(item => <SubsItem key = {item.id} title = {item.title} url = {item.url}/>)}
       </Carousel>
     </section>
   )

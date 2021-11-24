@@ -15,13 +15,13 @@ import { useSelector } from 'react-redux';
 
 
 export default function Home( {films, token} ) {
-  const dispatch = useDispatch();
-  console.log(films);
-  dispatch({type: ADD_TOKEN, payload: '123'});
-  const token2 = useSelector(state => state.token);
-  console.log(token2);
-  useEffect( () => {
-  }, []);
+  // const dispatch = useDispatch();
+  // console.log(films);
+  // dispatch({type: ADD_TOKEN, payload: '123'});
+  // const token2 = useSelector(state => state.token);
+  // console.log(token2);
+  // useEffect( () => {
+  // }, []);
 
   return (
     <>
@@ -42,15 +42,15 @@ export default function Home( {films, token} ) {
   )
 }
 
-export async function getStaticProps() {
-  const token = await load();
-  const allFilms = await loadAllItems(token);
+// export async function getStaticProps() {
+//   // const token = await load();
+//   // const allFilms = await loadAllItems(token);
 
-  return {
-    props: {
-      films: allFilms,
-      token: token,
-    },
-    revalidate: 1800,
-  };
-}
+//   // return {
+//   //   props: {
+//   //     films: allFilms,
+//   //     token: token,
+//   //   },
+//   //   revalidate: 1800,
+//   // };
+// }
