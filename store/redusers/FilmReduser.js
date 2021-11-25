@@ -6,7 +6,7 @@ const initialState = {
 
 const filmState = (state = initialState, action) => {
   switch (action.type) {
-    case с: {
+    case LOAD_FILMS: {
       return action.payload;
     }    
     default: return state;
