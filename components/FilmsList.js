@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Film from './Film';
+import { loadAllItems } from '../helpers/api-util';
+import { load } from '../helpers/db-util';
 
 const Ssection = styled.section`
   width: 80%;
@@ -21,7 +23,6 @@ const FilmsList = () => {
       <Film></Film>
       <Film></Film>
     </Ssection>
-    
   )
 }
 

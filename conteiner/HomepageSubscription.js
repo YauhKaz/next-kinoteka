@@ -16,11 +16,15 @@ const HomepageSubscription = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3
+      items: 4,
+      slidesToSlide: 4
+    },
+    tabletLarge: {
+      breakpoint: { max: 1024, min: 740 },
+      items: 3
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 740, min: 464 },
       items: 2
     },
     mobile: {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import logoImage from '../public/logo-icon.svg';
 import styled from 'styled-components';
 
@@ -10,11 +11,13 @@ const Sdiv = styled.div`
 const Logo = () => {
   return (
     <Sdiv>
-      <Image 
-        src={logoImage} 
-        alt="Logo image will redirect to home page"
-        width={35}
-        height={35}/>
+      <Link href='/'>
+        <Image 
+          src={logoImage} 
+          alt="Logo image will redirect to home page"
+          width={35}
+          height={35}/>
+      </Link>
     </Sdiv>
   )
 }

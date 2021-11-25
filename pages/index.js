@@ -10,18 +10,24 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadAllItems } from '../helpers/api-util';
 import { load } from '../helpers/db-util';
-import { ADD_TOKEN } from '../store/constants';
 import { useSelector } from 'react-redux';
+import { loadFilms } from '../store/actions';
+import { ADD_TOKEN } from '../store/constants';
 
 
-export default function Home( {films, token} ) {
-  // const dispatch = useDispatch();
-  // console.log(films);
-  // dispatch({type: ADD_TOKEN, payload: '123'});
-  // const token2 = useSelector(state => state.token);
-  // console.log(token2);
+export default function Home({films}) {
+  const dispatch = useDispatch();
+  dispatch({type: ADD_TOKEN});
+  // const loader = async () => {
+  //   const token = await load();
+  //   return await loadAllItems(token);
+  // }
+  // const allFilms = loader();
   // useEffect( () => {
-  // }, []);
+  //   // console.log(films);
+  //   dispatch(loadFilms(allFilms));
+  //   // loadFilms();
+  // }, [dispatch]);
 
   return (
     <>
@@ -42,15 +48,14 @@ export default function Home( {films, token} ) {
   )
 }
 
-// export async function getStaticProps() {
-//   // const token = await load();
-//   // const allFilms = await loadAllItems(token);
+export async function getStaticProps(store) {
+  const token = await load();
+  const allFilms = await loadAllItems(token);
 
-//   // return {
-//   //   props: {
-//   //     films: allFilms,
-//   //     token: token,
-//   //   },
-//   //   revalidate: 1800,
-//   // };
-// }
+  return {
+    props: {
+      films: allFilms,
+    },
+    revalidate: 1800,
+  };
+}
