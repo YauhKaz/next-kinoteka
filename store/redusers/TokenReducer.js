@@ -1,13 +1,10 @@
-import ADD_TOKEN from '../constants';
+import { ADD_TOKEN } from '../constants';
 
-const initialState = {
-  token: 0,
-};
+const initialState = 0;
 
 const tokenState = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TOKEN: 
-      return state + 1;
+    case ADD_TOKEN: return action.payload;
     default: return state;
   }
 };

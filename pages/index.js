@@ -15,19 +15,12 @@ import { loadFilms } from '../store/actions';
 import { ADD_TOKEN } from '../store/constants';
 
 
-export default function Home({films}) {
+export default function Home({films, token}) {
   const dispatch = useDispatch();
-  dispatch({type: ADD_TOKEN});
-  // const loader = async () => {
-  //   const token = await load();
-  //   return await loadAllItems(token);
-  // }
-  // const allFilms = loader();
-  // useEffect( () => {
-  //   // console.log(films);
-  //   dispatch(loadFilms(allFilms));
-  //   // loadFilms();
-  // }, [dispatch]);
+  useEffect( () => {
+    dispatch({type: ADD_TOKEN, payload: token});
+    dispatch(loadFilms(films));
+  }, [dispatch]);
 
   return (
     <>
@@ -48,13 +41,14 @@ export default function Home({films}) {
   )
 }
 
-export async function getStaticProps(store) {
+export async function getStaticProps() {
   const token = await load();
   const allFilms = await loadAllItems(token);
 
   return {
     props: {
       films: allFilms,
+      token: token,
     },
     revalidate: 1800,
   };

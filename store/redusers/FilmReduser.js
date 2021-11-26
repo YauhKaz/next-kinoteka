@@ -1,4 +1,4 @@
-import LOAD_FILMS from '../constants';
+import { LOAD_FILMS } from '../constants';
 
 const initialState = {
   films: [],

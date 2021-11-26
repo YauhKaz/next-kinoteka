@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Film from './Film';
-import { loadAllItems } from '../helpers/api-util';
-import { load } from '../helpers/db-util';
 
 const Ssection = styled.section`
   width: 80%;
@@ -15,13 +14,11 @@ const Ssection = styled.section`
 `;
 
 const FilmsList = () => {
+  const films = useSelector(state => state.films);
+  console.log(films);
   return (
     <Ssection>
-      <Film></Film>
-      <Film></Film>
-      <Film></Film>
-      <Film></Film>
-      <Film></Film>
+      {films.length > 0 && films.map(item => <Film film = {item}/>)}
     </Ssection>
   )
 }

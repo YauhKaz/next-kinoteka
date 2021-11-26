@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import favicon from '../public/favicon.png'
+import notFound from '../public/image-not-found.png'
 
 const Ssection = styled.section`
   display: flex;
@@ -33,20 +33,28 @@ const Sli = styled.li`
   margin-right: 5%;
 `;
 
-const Film = () => {
+const Film = ({film}) => {
+  const {title, createAt, images, categories} = film;
+  const image = images.length > 0 ? images[0].url : notFound;
+  const category = categories.length > 0 ? categories[0].title : 'Hot!';
+  const myLoader = ({ src, width, quality }) => {
+    return `${src}`;
+  }
+  const dateCreate = new Date(createAt);        
   return (
     <Ssection>
       <Image
-          src={favicon}
+          loader={myLoader}
+          src={image}
           alt="Search image will start to search movies"
           width={210}
           height={295}/>
       <Sdiv>    
-        <h2>Title</h2>    
+        <h2>{title}</h2>    
         <Sflexrow>
           <Sli>Cost</Sli>
-          <Sli>Category</Sli>
-          <Sli>Date</Sli>
+          <Sli>{category}</Sli>
+          <Sli>{`${dateCreate.getFullYear()}`}</Sli>
         </Sflexrow>
       </Sdiv>
     </Ssection>
