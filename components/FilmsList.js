@@ -15,7 +15,6 @@ const Ssection = styled.section`
 
 const FilmsList = () => {
   const films = useSelector(state => state.films);
-  console.log(films);
   return (
     <Ssection>
       {films.length > 0 && films.map(item => <Film film = {item}/>)}

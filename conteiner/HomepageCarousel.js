@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import CarouselItem from '../components/CarouselItem';
 
 const HomepageCarousel = () => {
+  const films = useSelector(state => state.films);
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -28,14 +30,7 @@ const HomepageCarousel = () => {
   return (
     <section>
       <Carousel responsive={responsive} infinite={true}>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
-        <CarouselItem/>
+      {films.length > 0 && films.map(item => <CarouselItem film = {item}/>)}
       </Carousel>
     </section>
   )

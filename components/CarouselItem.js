@@ -2,9 +2,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import favicon from '../public/favicon.png'
+import notFound from '../public/image-not-found.png'
 
 const Ssection = styled.section`
-  margin: 0 65px;
+  margin: 0 15px;
   width: 100%;
   height: 350px;
   position: relative;
@@ -12,9 +13,29 @@ const Ssection = styled.section`
   border-radius: 16px;
   transform: scale(1);
   transition: transform 1s;
-  &:hover{
-    transform: scale(1.1);
-    transition: transform 1s;
+  & span {
+    margin-left: 10px;
+    min-width: 90%;
+  }
+  & img {
+    width: 100%;
+    border-radius: 12px;
+    transform: scale(1);
+    filter: blur(0px);
+    transition: all 1s;
+    cursor: pointer;
+  };
+  &:hover {
+    img {
+      transform: scale(1.05);
+      filter: blur(3px);
+      transition: all 1s;
+    }
+    h2 {
+      transition: color 1s;
+      color: #10B5B2;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -37,20 +58,28 @@ const Sli = styled.li`
   margin-right: 5%;
 `;
 
-const CarouselItem = () => {
+const CarouselItem = ({film}) => {
+  const {title, createAt, images, categories} = film;
+  const image = images.length > 0 ? images[0].url : notFound;
+  const category = categories.length > 0 ? categories[0].title : 'Hot!';
+  const myLoader = ({ src, width, quality }) => {
+    return `${src}`;
+  };
+  const dateCreate = new Date(createAt);   
   return (
     <Ssection>
       <Image
-          src={favicon}
+          loader={myLoader}
+          src={image}
           alt="Search image will start to search movies"
           width={250}
           height={350}/>
       <Sdiv>    
-        <h2>Title</h2>    
+        <h2>{title}</h2>    
         <Sflexrow>
           <Sli>Cost</Sli>
-          <Sli>Category</Sli>
-          <Sli>Date</Sli>
+          <Sli>{category}</Sli>
+          <Sli>{`${dateCreate.getFullYear()}`}</Sli>
         </Sflexrow>
       </Sdiv>
     </Ssection>

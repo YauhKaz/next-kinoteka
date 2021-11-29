@@ -12,7 +12,6 @@ const SectionLayout = styled.section`
 `;
 
 const Ssection = styled.section`
-  
   border-radius: 16px;
   &:hover {
     img {
@@ -41,7 +40,7 @@ const Ssection = styled.section`
     opacity: 0;
     transition: all 1s;
     position: absolute;
-    left: 42%;
+    left: 40%;
     top: 34%;
     border-radius: 50px;
     cursor: pointer;
