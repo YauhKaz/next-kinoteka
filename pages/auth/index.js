@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 import Logo from '../../components/Logo'; 
 
 const SSection = styled.section`
@@ -18,7 +20,7 @@ const SDiv = styled.div`
   padding: 40px 0;
 `
 
-const SForm = styled.form`
+const SForm = styled.div`
   background-color: #131720;
   display: flex;
   flex-direction: column;
@@ -54,6 +56,13 @@ const SForm = styled.form`
     background-color: #fff;
     transition: all 1s;
   }
+  a {
+    color: #2f80ed;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `
 
 const SInput = styled.input`
@@ -67,21 +76,74 @@ const SInput = styled.input`
   width: 100%;
   padding: 0 20px;
 `
+const validationShema = yup.object().shape({
+  name: yup
+    .string()
+    .typeError('Должно быть строкой')
+    .required('Обязательно')
+    .min(3, 'Короткое название'),
+  password: yup
+    .string()
+    .typeError('Должно быть строкой')
+    .required('Обязательно')
+    .min(6, 'Короткий пароль'),
+});
 
 const Auth = () => {
   return (
     <SSection>
       <SDiv>
-        <SForm>
-          <Logo />
-          <SInput type='text' />
-          <SInput type='password' />
-          <div style={{width: '100%'}}>
-            <input type='checkbox' />
-            <label style={{paddingLeft: '40px'}}>Remember Me</label>
-          </div>
-          <input type='submit' value='Sign in' />
-        </SForm>
+        <Formik
+          initialValues={{
+            name: '',
+            password: '',  
+          }}
+          validateOnBlur
+          validationSchema={validationShema}
+          onSubmit={(values) => {
+            const {name, password} = values;
+            console.log(name, password);
+          }
+          }>
+          {({values, errors, touched, handleChange, handleSubmit, handleBlur, handleReset}) => (
+            <SForm>
+              <Logo />
+              <SInput
+                placeholder={'Name'}
+                onChange={handleChange} 
+                onBlur={handleBlur}
+                type={"text"} 
+                value={values.name}
+                name={'name'} 
+              />
+              {touched.name && errors.name && <p>{errors.name}</p>}
+              <SInput
+                placeholder={'Password'}
+                onChange={handleChange} 
+                onBlur={handleBlur}
+                type={"password"} 
+                value={values.password}
+                name={'password'} 
+              />
+              {touched.password && errors.password && <p>{errors.password}</p>}
+              <div style={{width: '100%'}}>
+                <input type='checkbox' />
+                <label style={{paddingLeft: '40px'}}>Remember Me</label>
+              </div>
+              <input 
+                onClick={handleSubmit}
+                type={"submit"} 
+                value='Sign In'
+              /> 
+              <div>
+                <span>Don't have an account? </span>
+                <a href="/auth/new-user">
+                  Sign up!
+                </a>
+              </div>
+            </SForm>
+          )}
+        </Formik>
       </SDiv>
     </SSection>
   )
