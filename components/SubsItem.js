@@ -84,12 +84,12 @@ const SubsItem = (props) => {
             width={210}
             height={295}/>
         </Link>
-        <Sdiv>    
-          <h2>
-            <Link href="/">
+        <Sdiv>   
+          <Link href="/"> 
+            <h2>
               {props.title}
-            </Link>
-          </h2>    
+            </h2> 
+          </Link>   
           <Sp>More than 300 movies</Sp>
         </Sdiv>
         <Link href="/">

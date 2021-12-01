@@ -13,6 +13,7 @@ const SectionLayout = styled.section`
 `;
 
 const Ssection = styled.section`
+  width: 210px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,6 +61,12 @@ const Sdiv = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  & h2 {
+    width: 210px;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 const Sflexrow = styled.ul`

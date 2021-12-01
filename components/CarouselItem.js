@@ -45,6 +45,12 @@ const Sdiv = styled.div`
   bottom: 10%;
   display: flex;
   flex-direction: column;
+  & h2 {
+    width: 70%;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 const Sflexrow = styled.ul`
