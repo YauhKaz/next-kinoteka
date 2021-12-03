@@ -2,9 +2,6 @@ import Header from '../conteiner/Header';
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import Plyr from 'plyr';
-
-const player = new Plyr('#player');
 
 const SDiv = styled.div`
   background: url(https://dmitryvolkov.me/demo/flixtv/main/img/details.jpg) center top / cover no-repeat;
@@ -134,7 +131,7 @@ const NewUser = () => {
             </p>
 					</div>
           <div style={{width: '100%', height: '100%', marginBottom: '50px'}}>
-            <video id="player" playsinline controls dataPoster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
+            <video style={{width: '100%', height: '100%'}} id="player" playsinline controls dataPoster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
               <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" size="576" type="video/mp4" />
               <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" size="720" type="video/mp4" />
               <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" size="1080" type="video/mp4" />
