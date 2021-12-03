@@ -17,7 +17,7 @@ const FilmsList = () => {
   const films = useSelector(state => state.films);
   return (
     <Ssection>
-      {films.length > 0 && films.map(item => <Film film = {item}/>)}
+      {films.length > 0 && films.map(item => <Film key= {item.id} film = {item}/>)}
     </Ssection>
   )
 }

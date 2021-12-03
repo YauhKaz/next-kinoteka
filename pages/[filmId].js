@@ -2,6 +2,9 @@ import Header from '../conteiner/Header';
 import Layout from '../components/Layout';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import ReactPlayer from 'react-player';
+import { useSelector } from 'react-redux';
+import notFound from '../public/image-not-found.png';
 
 const SDiv = styled.div`
   background: url(https://dmitryvolkov.me/demo/flixtv/main/img/details.jpg) center top / cover no-repeat;
@@ -84,9 +87,26 @@ const SUl = styled.ul`
   }
 `
 
-const NewUser = () => {
+const SVideoDiv = styled.div`
+  width: 100%; 
+  height: 100%; 
+  margin: 50px 0px;
+  div{
+    width: 100% !important; 
+    height: 100% !important;
+  }
+`
+
+const ChosedFilm = () => {
+  const films = useSelector(state => state.films);
   const router = useRouter();
   const numberFilm = router.query.filmId;
+  const chosedFilm = films.filter(item => {
+    if (item.id == numberFilm) return item
+  })[0];
+  const { title, description, categories, year } = chosedFilm;
+  const category = categories.length > 0 ? categories[0].title : 'Hot!';  
+  
   return (
     <Layout>
       <Header/>
@@ -113,11 +133,11 @@ const NewUser = () => {
 						</SLink>
           </div>
           <div>
-            <h1 style={{fontSize: '36px'}}>The Fast and the Furious</h1>
+            <h1 style={{fontSize: '36px'}}>{ title }</h1>
 
             <SUl>
-              <li>Action</li>
-              <li>2021</li>
+              <li>{ category }</li>
+              <li>{ year }</li>
             </SUl>
 
             <p style={{display: 'block',
@@ -125,26 +145,18 @@ const NewUser = () => {
                       lineHeight: '26px',
                       fontWeight: '400',
                       color: '#e0e0e0',}}>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-              The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, 
-              content here', making it look like readable English.
+               { description }
             </p>
 					</div>
-          <div style={{width: '100%', height: '100%', marginBottom: '50px'}}>
-            <video style={{width: '100%', height: '100%'}} id="player" playsinline controls dataPoster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" size="576" type="video/mp4" />
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" size="720" type="video/mp4" />
-              <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" size="1080" type="video/mp4" />
-
-              <track kind="captions" label="English captions" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" srclang="en" default />
-            </video>
-						
-					</div>
-
+          <SVideoDiv>
+            <ReactPlayer url="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+                         fileConfig={{ file: { attributes: { poster: notFound } }}}
+                         controls  />
+					</SVideoDiv>
         </div>
       </section>
     </Layout>
   )
 }
 
-export default NewUser;
+export default ChosedFilm;
